@@ -1,1 +1,1 @@
-# Sorting Arrays , strings and linked lists using Buble sort
+# A Generic Buble Sort Algorithm for array of numbers , strings and linked lists

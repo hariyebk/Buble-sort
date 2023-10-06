@@ -1,8 +1,9 @@
+import Sorter from "./Sort"
 class Node {
     next : Node | null = null
     constructor(public data: number){}
 }
-export class LinkedList {
+export class LinkedList extends Sorter{
     head : Node | null = null
     addNode(data : number) : void{
         // creating a new node
@@ -17,7 +18,7 @@ export class LinkedList {
             tail = tail.next
         }
         // insertig the new node after the last node
-        tail = node
+        tail.next = node
     }
     get length() : number{
         // if the linked list is empty
@@ -61,10 +62,12 @@ export class LinkedList {
         return this.at(leftIndex).data > this.at(rightIndex).data
     }
     swap(leftIndex: number, rightIndex: number) : void {
-        let leftNode = this.at(leftIndex).data
-        let rightNode = this.at(rightIndex).data
-        this.at(leftIndex).data = rightNode
-        rightNode = leftNode
+        const leftNode = this.at(leftIndex)
+        const rightNode = this.at(rightIndex)
+        let lefthand = leftNode.data
+        let rightHand = rightNode.data
+        leftNode.data = rightHand
+        rightNode.data = lefthand
     }
     print() : void{
         if(!this.head){
@@ -72,7 +75,7 @@ export class LinkedList {
         }
         let node : Node | null = this.head
         while(node){
-            console.log(node)
+            console.log(node.data)
             node = node.next
         }
     }
